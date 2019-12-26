@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:id="@+id/scrollViewTesting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/detail_item_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toTopOf="@+id/detail_item_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/detail_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="NAME"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@id/detail_item_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_thumbnail" />
+
+
+            <TextView
+
+                android:id="@+id/detail_item_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="DESCRIPTION"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_name" />
+
+            <Button
+                android:id="@+id/detail_item_visit_profile_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="VISIT SELLERS PROFILE"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_description"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.2">
+
+        <TextView
+            android:id="@+id/detail_item_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/money"
+            android:text="8.99"
+            android:layout_margin="5dp"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/detail_item_contact_button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/detail_item_contact_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTACT SELLER"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_item_price"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        tools:context=".EditProfileActivity">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <Button
+            android:id="@+id/changeProfilePicButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="CHANGE PICTURE" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/nameEditText"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/profile_name" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/passwordEditText"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Enter New Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/confirmPasswordEditText"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Confirm New Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/phoneEditText"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:text="@string/profile_phone" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/locationEditText"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/profile_location" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVE" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCEL" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

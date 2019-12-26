@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">V-Mall</string>
+    <string name="products">Products</string>
+    <string name="inbox">Inbox</string>
+    <string name="profile">Profile</string>
+
+    <string name="go_back">Go back</string>
+    <string name="type_message">Type a message…</string>
+    <string name="user_image">User image</string>
+    <string name="user_name_format">%1$s %2$s</string>
+    <string name="chat_image">Chat image</string>
+    <string name="pictures">Pictures</string>
+    <string name="take_photo">Take photo</string>
+    <string name="more_options">More options</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="no_account">Don\'t have an account? create a new account</string>
+    <string name="create_account">Create Account</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="name">Name</string>
+    <string name="already_account">Already have a account ? Login</string>
+    <string name="password_validation">password must be at least 6 characters</string>
+    <string name="you_sent_photo">You sent a photo</string>
+    <string name="friend_sent_photo">%1$s sent a photo</string>
+    <string name="you_sent_text">You: %1$s</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="test_name">John Doe</string>
+    <string name="test_message">Good morning my dear friend!</string>
+    <string name="test_timestamp">10-07 19:47</string>
+
+    <string name="profile_name">John Dougos</string>
+    <string name="profile_phone">6984483315</string>
+    <string name="profile_location">Larisa</string>
+
+    <string-array name="categorys">
+        <item>Select Category</item>
+        <item>Category 1</item>
+        <item>Category 2</item>
+        <item>Category 3</item>
+        <item>Category 4</item>
+        <item>Category 5</item>
+        <item>Category 6</item>
+        <item>Category 7</item>
+        <item>Category 8</item>
+    </string-array>
+</resources>

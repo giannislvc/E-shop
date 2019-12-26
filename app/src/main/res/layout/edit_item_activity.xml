@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        tools:context=".EditProfileActivity">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/bike" />
+
+        <Button
+            android:id="@+id/changeItemPicButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="CHANGE PICTURE" />
+
+        <Spinner
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:id="@+id/editItemCategorySpinner"
+            android:layout_width="215dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:textColor="@android:color/black"
+            android:id="@+id/titleEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:text="Title" />
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:textColor="@android:color/black"
+            android:id="@+id/descriptionEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:text="Description"/>
+
+        <EditText
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:textColor="@android:color/black"
+            android:id="@+id/priceEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="Price"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVE" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCEL" />
+
+            <Button
+                android:id="@+id/deleteItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
