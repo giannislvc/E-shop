@@ -9,6 +9,8 @@ public class Item implements Parcelable {
     private String name;
     private String description;
     private String price;
+    private String category;
+    private int views;
     private int thumbnail;
 
     public Item(String name ,String description,String price, int thumbnail) {
@@ -16,6 +18,7 @@ public class Item implements Parcelable {
         this.description = description;
         this.price = price;
         this.thumbnail = thumbnail;
+        views = 0;
     }
 
     protected Item(Parcel in) {

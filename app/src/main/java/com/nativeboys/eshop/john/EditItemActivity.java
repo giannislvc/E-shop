@@ -18,11 +18,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.nativeboys.eshop.R;
+import com.nativeboys.eshop.john2.Item;
+import com.nativeboys.eshop.john2.ItemDetailActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,22 +31,37 @@ import static android.app.Activity.RESULT_OK;
 
 public class EditItemActivity extends DialogFragment implements AdapterView.OnItemSelectedListener {
 
+    public final static String ITEM = "item";
+    private Item item;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button changeItemPicButton;
     private CircleImageView itemPic;
     private Button save;
     private Button cancel;
     private Button delete;
-    private EditText title;
+    private EditText name;
     private EditText description;
+    private EditText price;
     private AlertDialog dialog;
     private AlertDialog.Builder builder;
     private Spinner spinner;
+    private Button preview;
+
+    public static EditItemActivity newInstance(Item item) {
+        Bundle args = new Bundle();
+        args.putParcelable(ITEM, item);
+        EditItemActivity fragment = new EditItemActivity();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FadeFragmentTheme);
+        if (getArguments() != null) {
+            item = getArguments().getParcelable(ITEM);
+        }
     }
 
     @Nullable
@@ -57,6 +73,26 @@ public class EditItemActivity extends DialogFragment implements AdapterView.OnIt
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        name = view.findViewById(R.id.titleEditText);
+        description = view.findViewById(R.id.descriptionEditText);
+        price = view.findViewById(R.id.priceEditText);
+        itemPic = view.findViewById(R.id.item_pic);
+
+        if (item != null) {
+            name.setText(item.getName());
+            description.setText(item.getDescription());
+            price.setText(item.getPrice());
+            itemPic.setImageResource(item.getThumbnail());
+        }
+
+        preview = view.findViewById(R.id.previewItemButton);
+        preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ItemDetailActivity.newInstance(item).show(getChildFragmentManager(), ItemDetailActivity.class.getSimpleName());
+            }
+        });
 
         spinner = view.findViewById(R.id.editItemCategorySpinner);
         ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(getContext(), R.array.categorys, android.R.layout.simple_spinner_item);
@@ -81,11 +117,7 @@ public class EditItemActivity extends DialogFragment implements AdapterView.OnIt
         });
         dialog = builder.create();
 
-        title = view.findViewById(R.id.titleEditText);
-        description = view.findViewById(R.id.descriptionEditText);
-
-        itemPic=view.findViewById(R.id.item_pic);
-        changeItemPicButton=view.findViewById(R.id.changeItemPicButton);
+        changeItemPicButton = view.findViewById(R.id.changeItemPicButton);
         changeItemPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +190,7 @@ public class EditItemActivity extends DialogFragment implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedCategory = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), "selected category: "+selectedCategory, Toast.LENGTH_SHORT).show();
+        Toast.makeText(parent.getContext(), "selected category: " + selectedCategory, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -17,7 +17,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
@@ -67,8 +66,8 @@ public class AddItemActivity extends DialogFragment implements AdapterView.OnIte
         title = view.findViewById(R.id.titleEditText);
         description = view.findViewById(R.id.descriptionEditText);
 
-        itemPic=view.findViewById(R.id.item_pic);
-        changeItemPicButton=view.findViewById(R.id.changeItemPicButton);
+        itemPic = view.findViewById(R.id.item_pic);
+        changeItemPicButton = view.findViewById(R.id.changeItemPicButton);
         changeItemPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +129,7 @@ public class AddItemActivity extends DialogFragment implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedCategory = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), "selected category: "+selectedCategory, Toast.LENGTH_SHORT).show();
+        Toast.makeText(parent.getContext(), "selected category: " + selectedCategory, Toast.LENGTH_SHORT).show();
     }
 
     @Override

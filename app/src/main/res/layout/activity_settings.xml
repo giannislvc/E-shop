@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/help_btn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="HELP" />
+
+    <Button
+        android:id="@+id/about_us_btn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="ABOUT US" />
+
+    <Button
+        android:id="@+id/bug_btn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="REPORT A BUG" />
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="LOG OUT" />
+
+</LinearLayout>

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,24 +14,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nativeboys.eshop.R;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> implements Filterable {
 
-    Context context;
-    List<Item> cData;
-    ClickListener itemClickListener;
+    private Context context;
+    private List<Item> cData;
+    private ClickListener itemClickListener;
+
+    private List<Item> allItems;
 
     public ItemAdapter(Context context, List<Item> cData, ClickListener listener) {
         this.context = context;
         this.cData = cData;
         itemClickListener = listener;
+
+        this.allItems = new ArrayList<>(cData);
     }
 
     @NonNull
     @Override
     public ItemAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -50,12 +58,45 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
 
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Item> filteredList = new ArrayList<>();
+            if (constraint.toString().isEmpty()) {
+                filteredList.addAll(allItems);
+            } else {
+                for (Item item : allItems) {
+                    if (item.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            cData.clear();
+            cData.addAll((Collection<? extends Item>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView itemName;
         private TextView itemDescription;
         private TextView itemPrice;
         private ImageView itemThumbnail;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.row_detail_item_name);
@@ -66,7 +107,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyViewHolder> 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    itemClickListener.onItemClick(cData.get(getAdapterPosition()),itemThumbnail);
+                    itemClickListener.onItemClick(cData.get(getAdapterPosition()), itemThumbnail);
 
 
                 }

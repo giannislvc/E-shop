@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollViewTesting"
@@ -30,19 +30,58 @@
                 app:srcCompat="@drawable/ic_launcher_background"
                 tools:ignore="VectorDrawableCompat" />
 
+            <ToggleButton
+                android:id="@+id/favorite_toggle_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/toggle_favorite_selector"
+                android:textOff=""
+                android:textOn=""
+                app:layout_constraintBottom_toTopOf="@id/detail_item_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_thumbnail" />
+
+            <TextView
+                android:id="@+id/viewCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/eye"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/favorite_toggle_btn"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_thumbnail" />
+
+            <TextView
+                android:id="@+id/ItemStarCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/star"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/viewCounter"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_thumbnail" />
+
+
             <TextView
                 android:id="@+id/detail_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
                 android:text="NAME"
                 android:textColor="@android:color/black"
                 android:textSize="25sp"
                 app:layout_constraintBottom_toTopOf="@id/detail_item_description"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/detail_item_thumbnail" />
-
+                app:layout_constraintTop_toBottomOf="@id/favorite_toggle_btn" />
 
             <TextView
 
@@ -63,9 +102,21 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:text="VISIT SELLERS PROFILE"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/item_rating_bar"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/detail_item_description"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_description" />
+
+            <RatingBar
+                android:id="@+id/item_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:numStars="5"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_item_visit_profile_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -81,15 +132,15 @@
             android:id="@+id/detail_item_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:drawableLeft="@drawable/money"
             android:text="8.99"
-            android:layout_margin="5dp"
-            android:textSize="25sp"
             android:textColor="@android:color/black"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@id/detail_item_contact_button"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/detail_item_contact_button"
@@ -97,9 +148,9 @@
             android:layout_height="wrap_content"
             android:text="CONTACT SELLER"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/detail_item_price"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

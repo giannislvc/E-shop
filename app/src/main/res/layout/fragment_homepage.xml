@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".HomepageFragment">
 
         <TextView
@@ -51,9 +51,11 @@
 
         <TextView
             android:id="@+id/categoryTextView"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:text="Categories"
             android:textColor="@android:color/black"
@@ -72,9 +74,11 @@
 
         <TextView
             android:id="@+id/recent_items_title"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:text="Recent"
             android:textColor="@android:color/black"
@@ -92,9 +96,11 @@
 
         <TextView
             android:id="@+id/favorite_items_title"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:text="Favorite"
             android:textColor="@android:color/black"
@@ -112,9 +118,11 @@
 
         <TextView
             android:id="@+id/most_views_items_title"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:text="Most views"
             android:textColor="@android:color/black"

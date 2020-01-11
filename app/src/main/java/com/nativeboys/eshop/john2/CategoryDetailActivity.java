@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -15,22 +19,21 @@ import com.nativeboys.eshop.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDetailActivity extends DialogFragment implements ClickListener{
+public class CategoryDetailActivity extends DialogFragment implements ClickListener {
 
-    private final static String NAME="name";
-    private final static String THUMBNAIL="thumbnail";
-
-
+    private final static String NAME = "name";
+    private final static String THUMBNAIL = "thumbnail";
+    private SearchView searchView;
     private String categoryName;
     private TextView name;
     private RecyclerView recentRv;
-
+    private List<Item> recentItemsList;
 
     public static CategoryDetailActivity newInstance(String name, int thumbnail) {
 
         Bundle args = new Bundle();
-        args.putString(NAME,name);
-        args.putInt(THUMBNAIL,thumbnail);
+        args.putString(NAME, name);
+        args.putInt(THUMBNAIL, thumbnail);
         CategoryDetailActivity fragment = new CategoryDetailActivity();
         fragment.setArguments(args);
         return fragment;
@@ -40,7 +43,7 @@ public class CategoryDetailActivity extends DialogFragment implements ClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FadeFragmentTheme);
-        if(getArguments() != null){
+        if (getArguments() != null) {
             categoryName = getArguments().getString(NAME);
         }
     }
@@ -48,31 +51,45 @@ public class CategoryDetailActivity extends DialogFragment implements ClickListe
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_category_detail,container,false);
+        return inflater.inflate(R.layout.activity_category_detail, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        searchView = view.findViewById(R.id.detail_category_search_view);
         name = view.findViewById(R.id.detail_category_name);
         name.setText(categoryName);
 
         recentRv = view.findViewById(R.id.detail_category_rv);
-        List<Item> recentItemsList = new ArrayList<>();
-        recentItemsList.add(new Item("Bike","Lite used bike in nice condition","250.99",R.drawable.bike));
-        recentItemsList.add(new Item("Hat","Beautiful hat for the sun","8.99",R.drawable.hat));
-        recentItemsList.add(new Item("Pants","Large pant for large balls","20.40",R.drawable.pants));
-        recentItemsList.add(new Item("Shoes","Expensive nike shoes for ur smelly feet","120.35",R.drawable.shoes));
-        recentItemsList.add(new Item("T-Shirt","T-Shirt to cover your fat belly","12.99",R.drawable.shirt));
-        recentItemsList.add(new Item("Bike","Lite used bike in nice condition","250.99",R.drawable.bike));
-        recentItemsList.add(new Item("Hat","Beautiful hat for the sun","8.99",R.drawable.hat));
-        recentItemsList.add(new Item("Pants","Large pant for large balls","20.40",R.drawable.pants));
-        recentItemsList.add(new Item("Shoes","Expensive nike shoes for ur smelly feet","120.35",R.drawable.shoes));
-        recentItemsList.add(new Item("T-Shirt","T-Shirt to cover your fat belly","12.99",R.drawable.shirt));
-        ItemAdapter recentItemsAdapter  = new ItemAdapter(getContext(),recentItemsList,this);
+        recentItemsList = new ArrayList<>();
+        recentItemsList.add(new Item("Bike", "Lite used bike in nice condition", "250.99", R.drawable.bike));
+        recentItemsList.add(new Item("Hat", "Beautiful hat for the sun", "8.99", R.drawable.hat));
+        recentItemsList.add(new Item("Pants", "Large pant for large balls", "20.40", R.drawable.pants));
+        recentItemsList.add(new Item("Shoes", "Expensive nike shoes for ur smelly feet", "120.35", R.drawable.shoes));
+        recentItemsList.add(new Item("T-Shirt", "T-Shirt to cover your fat belly", "12.99", R.drawable.shirt));
+        recentItemsList.add(new Item("Bike", "Lite used bike in nice condition", "250.99", R.drawable.bike));
+        recentItemsList.add(new Item("Hat", "Beautiful hat for the sun", "8.99", R.drawable.hat));
+        recentItemsList.add(new Item("Pants", "Large pant for large balls", "20.40", R.drawable.pants));
+        recentItemsList.add(new Item("Shoes", "Expensive nike shoes for ur smelly feet", "120.35", R.drawable.shoes));
+        recentItemsList.add(new Item("T-Shirt", "T-Shirt to cover your fat belly", "12.99", R.drawable.shirt));
+        ItemAdapter recentItemsAdapter = new ItemAdapter(getContext(), recentItemsList, this);
         recentRv.setAdapter(recentItemsAdapter);
-        recentRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+        recentRv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recentItemsAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
     }
 
@@ -85,4 +102,5 @@ public class CategoryDetailActivity extends DialogFragment implements ClickListe
     public void onItemClick(Item item, ImageView itemImageView) {
         ItemDetailActivity.newInstance(item).show(getChildFragmentManager(), ItemDetailActivity.class.getSimpleName());
     }
+
 }

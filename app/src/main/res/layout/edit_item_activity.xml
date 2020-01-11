@@ -4,16 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <LinearLayout
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:clickable="true"
+        android:orientation="vertical"
         tools:context=".EditProfileActivity">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -33,39 +34,36 @@
             android:text="CHANGE PICTURE" />
 
         <Spinner
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
             android:id="@+id/editItemCategorySpinner"
             android:layout_width="215dp"
             android:layout_height="42dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
         <EditText
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
-            android:textColor="@android:color/black"
             android:id="@+id/titleEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:text="Title" />
+            android:textColor="@android:color/black"
+            android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
         <EditText
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
-            android:textColor="@android:color/black"
             android:id="@+id/descriptionEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:text="Description"/>
+            android:text="Description"
+            android:textColor="@android:color/black"
+            android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
         <EditText
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
-            android:textColor="@android:color/black"
             android:id="@+id/priceEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +71,9 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="Price"/>
+            android:text="Price"
+            android:textColor="@android:color/black"
+            android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -98,7 +98,13 @@
                 android:id="@+id/deleteItemButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DELETE"/>
+                android:text="DELETE" />
+
+            <Button
+                android:id="@+id/previewItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PREVIEW" />
 
         </LinearLayout>
 
