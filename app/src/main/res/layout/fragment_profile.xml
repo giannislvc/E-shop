@@ -91,29 +91,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_pic" />
 
-    <TextView
-        android:id="@+id/list_head_line"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/profile_tab_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="My Products"
-        android:textColor="#000000"
-        android:textSize="21sp"
-        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:minHeight="?actionBarSize"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_profile_button" />
+        app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+        app:tabBackground="@android:color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabTextAppearance="@style/NavigationTabTextAppearance"
+        app:tabTextColor="@color/gray" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myProductsRV"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/profile_view_pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_head_line"
+        app:layout_constraintTop_toBottomOf="@id/profile_tab_layout"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
